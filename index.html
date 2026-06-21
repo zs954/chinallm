@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ChinaLLM API - Chinese LLMs, One Simple API</title>
+  <meta name="description" content="Access DeepSeek, Qwen and other Chinese AI models through one OpenAI-compatible API.">
+  <meta name="theme-color" content="#080a10">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ChinaLLM API">
+  <meta property="og:description" content="OpenAI-compatible API for Chinese LLMs.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2216%22 fill=%22%230a84ff%22/><path d=%22M20 22h24M20 32h16M20 42h20%22 stroke=%22white%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="ChinaLLM API home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span>ChinaLLM <b>API</b></span>
+    </a>
+    <div class="header-actions">
+      <div class="language-switcher" role="group" aria-label="Choose language" data-i18n-aria-label="language.label">
+        <button class="language-button" type="button" data-language="en" aria-pressed="true">EN</button>
+        <button class="language-button" type="button" data-language="zh" aria-pressed="false">中文</button>
+      </div>
+      <button class="nav-cta" type="button" data-scroll-to-form data-i18n="nav.access">Get Early Access</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-copy" data-reveal>
+        <div class="eyebrow"><span class="status-dot"></span><span data-i18n="hero.eyebrow">Private beta opening soon</span></div>
+        <h1 data-i18n="hero.title">OpenAI-compatible API for <span>Chinese LLMs</span></h1>
+        <p class="hero-lead" data-i18n="hero.lead">Access DeepSeek, Qwen and other Chinese AI models through one simple API.</p>
+        <p class="hero-audience" data-i18n="hero.audience">Built for indie hackers, AI developers, and small teams who want affordable inference without a new integration.</p>
+        <div class="hero-actions">
+          <button class="primary-button" type="button" data-scroll-to-form data-i18n="hero.access">Get Early Access <span aria-hidden="true">→</span></button>
+          <a class="text-link" href="#code" data-i18n="hero.codeLink">See the code <span aria-hidden="true">↓</span></a>
+        </div>
+        <p class="microcopy" data-i18n="hero.microcopy">No credit card. Tell us what you want to build.</p>
+      </div>
+
+      <div class="hero-visual" data-reveal>
+        <div class="phone-glow"></div>
+        <div class="glass-panel code-window">
+          <div class="window-bar">
+            <div class="traffic-lights" aria-hidden="true"><i></i><i></i><i></i></div>
+            <span>quickstart.py</span>
+            <span class="live-pill">Python</span>
+          </div>
+          <pre><code><span class="code-muted">from</span> openai <span class="code-muted">import</span> OpenAI
+
+client = OpenAI(
+    api_key=<span class="code-string">"YOUR_API_KEY"</span>,
+    base_url=<span class="code-string" data-api-base>"https://api.chinallmapi.com/v1"</span>
+)
+
+response = client.chat.completions.create(
+    model=<span class="code-string">"deepseek-chat"</span>,
+    messages=[{
+        <span class="code-string">"role"</span>: <span class="code-string">"user"</span>,
+        <span class="code-string">"content"</span>: <span class="code-string">"Hello"</span>
+    }]
+)</code></pre>
+          <div class="code-footer"><span><i></i><b data-i18n="code.ready">Ready</b></span><span data-i18n="code.compatible">OpenAI SDK compatible</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip section-shell" aria-label="Product highlights" data-reveal>
+      <div><span class="trust-icon">⌘</span><p><strong data-i18n="trust.compatibleTitle">Drop-in compatible</strong><small data-i18n="trust.compatibleText">Keep your OpenAI SDK</small></p></div>
+      <div><span class="trust-icon">Aa</span><p><strong data-i18n="trust.englishTitle">English-first</strong><small data-i18n="trust.englishText">Clear docs and support</small></p></div>
+      <div><span class="trust-icon">↗</span><p><strong data-i18n="trust.shipTitle">Built to ship</strong><small data-i18n="trust.shipText">One key, one endpoint</small></p></div>
+    </section>
+
+    <section class="content-section section-shell" id="features">
+      <div class="section-heading" data-reveal>
+        <span class="section-kicker" data-i18n="features.kicker">The simple path</span>
+        <h2 data-i18n="features.title">More models.<br><span>Less integration.</span></h2>
+        <p data-i18n="features.lead">Your existing OpenAI code is already most of the way there.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="glass-panel feature-card feature-primary" data-reveal>
+          <div class="feature-icon blue">⌘</div>
+          <h3 data-i18n="features.endpointTitle">OpenAI-compatible endpoint</h3>
+          <p data-i18n="features.endpointText">Change the base URL and model name. Keep the tools and patterns your team already knows.</p>
+          <div class="endpoint-preview"><span>POST</span><code>/v1/chat/completions</code><i>200</i></div>
+        </article>
+        <article class="glass-panel feature-card" data-reveal>
+          <div class="feature-icon violet">✦</div>
+          <h3 data-i18n="features.keyTitle">Simple API key</h3>
+          <p data-i18n="features.keyText">One credential across supported models, with no provider-by-provider setup.</p>
+        </article>
+        <article class="glass-panel feature-card" data-reveal>
+          <div class="feature-icon green">↓</div>
+          <h3 data-i18n="features.priceTitle">Affordable inference</h3>
+          <p data-i18n="features.priceText">Explore capable Chinese models with cost-conscious teams in mind.</p>
+        </article>
+        <article class="glass-panel feature-card" data-reveal>
+          <div class="feature-icon orange">Aa</div>
+          <h3 data-i18n="features.docsTitle">English documentation</h3>
+          <p data-i18n="features.docsText">Quickstarts and examples written for global developers from day one.</p>
+        </article>
+        <article class="glass-panel feature-card muted-card" data-reveal>
+          <span class="coming-pill" data-i18n="features.soon">Coming soon</span>
+          <div class="feature-icon gray">▥</div>
+          <h3 data-i18n="features.dashboardTitle">Usage dashboard</h3>
+          <p data-i18n="features.dashboardText">Track requests, spend, and model usage in one calm, focused view.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="models-section section-shell" id="models">
+      <div class="section-heading centered" data-reveal>
+        <span class="section-kicker" data-i18n="models.kicker">Model access</span>
+        <h2 data-i18n="models.title">The models developers<br><span>are asking for.</span></h2>
+      </div>
+      <div class="model-grid">
+        <article class="glass-panel model-card" data-reveal>
+          <div class="model-logo deepseek">D</div><div><span class="available" data-i18n="models.available">Available at launch</span><h3>DeepSeek</h3><p data-i18n="models.deepseekText">Reasoning and general-purpose models.</p></div>
+        </article>
+        <article class="glass-panel model-card" data-reveal>
+          <div class="model-logo qwen">Q</div><div><span class="available" data-i18n="models.available">Available at launch</span><h3>Qwen</h3><p data-i18n="models.qwenText">Multilingual and coding-capable models.</p></div>
+        </article>
+        <article class="glass-panel model-card future" data-reveal>
+          <div class="model-logo more">+</div><div><span class="planned" data-i18n="models.planned">Planned</span><h3 data-i18n="models.moreTitle">More coming</h3><p data-i18n="models.moreText">Tell us which provider should be next.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="code-section section-shell" id="code">
+      <div class="section-heading" data-reveal>
+        <span class="section-kicker" data-i18n="code.kicker">One tiny change</span>
+        <h2 data-i18n="code.title">Your code,<br><span>new possibilities.</span></h2>
+        <p data-i18n="code.lead">Use the official OpenAI SDK. Just point it to a different base URL.</p>
+      </div>
+      <div class="glass-panel code-window code-wide" data-reveal>
+        <div class="window-bar"><div class="traffic-lights"><i></i><i></i><i></i></div><span>app.py</span><button type="button" class="copy-label" aria-label="Code ready to copy" data-i18n="code.copy">Ready to copy</button></div>
+        <pre><code><span class="code-muted">from</span> openai <span class="code-muted">import</span> OpenAI
+
+client = OpenAI(
+    api_key=<span class="code-string">"YOUR_API_KEY"</span>,
+    <mark>base_url=<span class="code-string" data-api-base>"https://api.chinallmapi.com/v1"</span></mark>
+)</code></pre>
+      </div>
+    </section>
+
+    <section class="access-section section-shell" id="early-access">
+      <div class="access-copy" data-reveal>
+        <span class="section-kicker" data-i18n="access.kicker">Private beta</span>
+        <h2 data-i18n="access.title">Help shape the API<br><span>you want to use.</span></h2>
+        <p data-i18n="access.lead">We're talking to a small group of developers before we build the full product. Tell us what matters to you.</p>
+        <ul>
+          <li><i>✓</i> <span data-i18n="access.benefit1">Early API access</span></li>
+          <li><i>✓</i> <span data-i18n="access.benefit2">A direct line to the builders</span></li>
+          <li><i>✓</i> <span data-i18n="access.benefit3">Influence model and pricing priorities</span></li>
+        </ul>
+      </div>
+
+      <form class="glass-panel access-form" id="access-form" novalidate data-reveal>
+        <div class="form-heading"><span class="form-icon">✦</span><div><h3 data-i18n="form.title">Request early access</h3><p data-i18n="form.subtitle">Takes less than a minute.</p></div></div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="name" data-i18n="form.nameLabel">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" maxlength="120" placeholder="Your name" data-i18n-placeholder="form.namePlaceholder" aria-describedby="name-error">
+            <span class="field-error" id="name-error"></span>
+          </div>
+          <div class="form-field">
+            <label for="email" data-i18n="form.emailLabel">Email address</label>
+            <input id="email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="you@company.com" data-i18n-placeholder="form.emailPlaceholder" aria-describedby="email-error">
+            <span class="field-error" id="email-error"></span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="company" data-i18n="form.companyLabel">Company</label>
+            <input id="company" name="company" type="text" autocomplete="organization" maxlength="160" placeholder="Company or team (optional)" data-i18n-placeholder="form.companyPlaceholder" aria-describedby="company-error">
+            <span class="field-error" id="company-error"></span>
+          </div>
+          <div class="form-field">
+            <label for="country" data-i18n="form.countryLabel">Country or region</label>
+            <input id="country" name="country" type="text" autocomplete="country-name" maxlength="100" placeholder="United States" data-i18n-placeholder="form.countryPlaceholder" aria-describedby="country-error">
+            <span class="field-error" id="country-error"></span>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="project" data-i18n="form.projectLabel">What are you building?</label>
+          <textarea id="project" name="project" rows="3" maxlength="2000" placeholder="A short description of your product or use case" data-i18n-placeholder="form.projectPlaceholder" aria-describedby="project-error"></textarea>
+          <span class="field-error" id="project-error"></span>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="model" data-i18n="form.modelLabel">Preferred model</label>
+            <select id="model" name="model" aria-describedby="model-error"><option value="" data-i18n="form.modelPrompt">Choose one</option><option value="DeepSeek">DeepSeek</option><option value="Qwen">Qwen</option><option value="Kimi">Kimi</option><option value="Other" data-i18n="form.other">Other</option></select>
+            <span class="field-error" id="model-error"></span>
+          </div>
+          <div class="form-field">
+            <label for="usage" data-i18n="form.usageLabel">Expected monthly usage</label>
+            <select id="usage" name="usage" aria-describedby="usage-error"><option value="" data-i18n="form.usagePrompt">Choose range</option><option value="Under 1M tokens" data-i18n="form.usageUnder">Under 1M tokens</option><option value="1M-10M tokens" data-i18n="form.usageMid">1M-10M tokens</option><option value="10M-100M tokens" data-i18n="form.usageHigh">10M-100M tokens</option><option value="100M+ tokens" data-i18n="form.usageMax">100M+ tokens</option><option value="Not sure yet" data-i18n="form.usageUnknown">Not sure yet</option></select>
+            <span class="field-error" id="usage-error"></span>
+          </div>
+        </div>
+        <button class="primary-button submit-button" type="submit"><span class="spinner" aria-hidden="true"></span><span class="button-label" data-i18n="form.submit">Get Early Access</span><span aria-hidden="true">→</span></button>
+        <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+        <p class="privacy-note" data-i18n="form.privacy">No spam. Just beta updates and an invitation when we're ready.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer section-shell">
+    <a class="brand" href="#top"><span class="brand-mark"><i></i><i></i><i></i></span><span>ChinaLLM <b>API</b></span></a>
+    <p data-i18n="footer.note">Early access preview · Built for developers everywhere</p>
+  </footer>
+</body>
+</html>

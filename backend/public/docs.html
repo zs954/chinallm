@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ChinaLLM API Docs</title><link rel="stylesheet" href="/admin.css"><script src="/docs.js" defer></script></head>
+<body><header class="topbar"><a class="brand" href="/"><span class="brand-icon">C</span><span>ChinaLLM <b>Docs</b></span></a><div class="language-switcher"><button type="button" data-language="en" aria-pressed="true">EN</button><button type="button" data-language="zh" aria-pressed="false">中文</button></div></header>
+<main class="docs-shell"><section class="docs-hero"><p class="kicker" data-i18n="docs.kicker">OpenAI-compatible gateway</p><h1 data-i18n="docs.title">API documentation</h1><p data-i18n="docs.lead">Use one endpoint and one key to access supported Chinese language models.</p></section>
+<section class="docs-grid">
+<article class="glass doc-card"><span class="method get">GET</span><code>/health</code><h2 data-i18n="health.title">Health check</h2><p data-i18n="health.text">Public service availability check.</p></article>
+<article class="glass doc-card"><span class="method post">POST</span><code>/early-access</code><h2 data-i18n="lead.title">Early access</h2><p data-i18n="lead.text">Submit name, email, company, country, project, model, and usage.</p></article>
+<article class="glass doc-card"><span class="method post">POST</span><code>/admin/create-key</code><h2 data-i18n="key.title">Create API key</h2><p data-i18n="key.text">Requires x-admin-secret. The raw key is returned once.</p></article>
+<article class="glass doc-card"><span class="method get">GET</span><code>/admin/stats · /admin/leads · /admin/logs</code><h2 data-i18n="admin.title">Administrator data</h2><p data-i18n="admin.text">Protected overview, lead, and usage data.</p></article>
+<article class="glass doc-card wide"><span class="method post">POST</span><code>/v1/chat/completions</code><h2 data-i18n="chat.title">Chat completions</h2><p data-i18n="chat.text">Send an OpenAI-compatible non-streaming chat request with a Bearer API key.</p><pre><code>from openai import OpenAI
+
+client = OpenAI(
+    api_key="cllm_your_key",
+    base_url="https://your-service.onrender.com/v1"
+)
+
+response = client.chat.completions.create(
+    model="deepseek-chat",
+    messages=[{"role": "user", "content": "Hello"}]
+)</code></pre></article>
+<article class="glass doc-card wide"><h2 data-i18n="errors.title">Errors and limits</h2><p data-i18n="errors.text">Errors use an OpenAI-style error object. Streaming is not supported. Early-access submissions are limited to five per 15 minutes.</p></article>
+</section></main></body></html>

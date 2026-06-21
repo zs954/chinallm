@@ -1,0 +1,20 @@
+{
+  "name": "chinallm-api-backend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "OpenAI-compatible API gateway for Chinese LLMs",
+  "type": "module",
+  "main": "server.js",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node --no-warnings server.js",
+    "dev": "node --watch --no-warnings server.js",
+    "test": "node --no-warnings --test --test-concurrency=1"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0"
+  }
+}

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ChinaLLM API Admin</title><link rel="stylesheet" href="/admin.css"><script src="/admin.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <header class="topbar">
+    <a class="brand" href="/"><span class="brand-icon">C</span><span>ChinaLLM <b>Admin</b></span></a>
+    <div class="top-actions">
+      <span class="health" id="health-indicator"><i></i><span data-i18n="status.checking">Checking</span></span>
+      <div class="language-switcher" role="group" aria-label="Language"><button type="button" data-language="en" aria-pressed="true">EN</button><button type="button" data-language="zh" aria-pressed="false">中文</button></div>
+      <button class="ghost-button hidden" id="logout-button" type="button" data-i18n="action.logout">Log out</button>
+    </div>
+  </header>
+  <main>
+    <section class="login-shell" id="login-view">
+      <form class="glass login-card" id="login-form">
+        <span class="login-icon">⌘</span><p class="kicker" data-i18n="login.kicker">Secure access</p>
+        <h1 data-i18n="login.title">Open the control room.</h1>
+        <p data-i18n="login.lead">Enter your administrator secret. It stays in sessionStorage and clears when this tab closes.</p>
+        <label for="admin-secret" data-i18n="login.label">Administrator secret</label><input id="admin-secret" type="password" autocomplete="current-password" required>
+        <button class="primary-button" type="submit" data-i18n="login.submit">Continue</button><p class="message" id="login-message" role="alert"></p>
+      </form>
+    </section>
+    <section class="dashboard hidden" id="dashboard-view">
+      <nav class="sidebar" aria-label="Dashboard">
+        <button class="nav-item active" type="button" data-view="overview-view"><span>◫</span><b data-i18n="nav.overview">Overview</b></button>
+        <button class="nav-item" type="button" data-view="leads-view"><span>◎</span><b data-i18n="nav.leads">Early Access</b></button>
+        <button class="nav-item" type="button" data-view="keys-view"><span>◇</span><b data-i18n="nav.keys">API Keys</b></button>
+        <button class="nav-item" type="button" data-view="logs-view"><span>≡</span><b data-i18n="nav.logs">Usage Logs</b></button>
+        <a class="nav-item" href="/docs"><span>↗</span><b data-i18n="nav.docs">API Docs</b></a>
+      </nav>
+      <div class="workspace">
+        <section class="panel-view" id="overview-view">
+          <div class="page-heading"><div><p class="kicker" data-i18n="overview.kicker">Live operations</p><h1 data-i18n="overview.title">Overview</h1></div><button class="ghost-button refresh-button" type="button" data-i18n="action.refresh">Refresh</button></div>
+          <div class="metric-grid">
+            <article class="glass metric"><span>◎</span><strong id="stat-leads">0</strong><p data-i18n="metric.leads">Early access leads</p></article>
+            <article class="glass metric"><span>◇</span><strong id="stat-keys">0</strong><p data-i18n="metric.keys">Active API keys</p></article>
+            <article class="glass metric"><span>↗</span><strong id="stat-requests">0</strong><p data-i18n="metric.requests">API requests</p></article>
+            <article class="glass metric"><span>Σ</span><strong id="stat-tokens">0</strong><p data-i18n="metric.tokens">Total tokens</p></article>
+            <article class="glass metric"><span>✓</span><strong id="stat-success">0</strong><p data-i18n="metric.success">Successful</p></article>
+            <article class="glass metric"><span>!</span><strong id="stat-failed">0</strong><p data-i18n="metric.failed">Failed</p></article>
+          </div>
+        </section>
+        <section class="panel-view hidden" id="leads-view">
+          <div class="page-heading"><div><p class="kicker" data-i18n="leads.kicker">People who raised a hand</p><h1 data-i18n="leads.title">Early Access</h1></div><input class="search" id="lead-search" type="search" data-i18n-placeholder="leads.search" placeholder="Search leads"></div>
+          <div class="glass table-card"><div class="table-scroll"><table><thead><tr><th data-i18n="table.name">Name</th><th data-i18n="table.email">Email</th><th data-i18n="table.company">Company</th><th data-i18n="table.country">Country</th><th data-i18n="table.project">Project</th><th data-i18n="table.model">Model</th><th data-i18n="table.usage">Usage</th><th data-i18n="table.date">Date</th></tr></thead><tbody id="leads-body"></tbody></table></div><p class="empty hidden" id="leads-empty" data-i18n="leads.empty">No leads yet.</p></div>
+        </section>
+        <section class="panel-view hidden" id="keys-view">
+          <div class="page-heading"><div><p class="kicker" data-i18n="keys.kicker">Early tester access</p><h1 data-i18n="keys.title">API Keys</h1></div></div>
+          <form class="glass create-form" id="key-form"><div><label for="key-name" data-i18n="keys.label">Key name</label><input id="key-name" required maxlength="120" placeholder="early-tester"></div><button class="primary-button" type="submit" data-i18n="keys.create">Create key</button></form><p class="message" id="key-message"></p>
+        </section>
+        <section class="panel-view hidden" id="logs-view">
+          <div class="page-heading"><div><p class="kicker" data-i18n="logs.kicker">Recent activity</p><h1 data-i18n="logs.title">Usage Logs</h1></div></div>
+          <div class="glass table-card"><div class="table-scroll"><table><thead><tr><th data-i18n="table.key">Key</th><th data-i18n="table.model">Model</th><th data-i18n="table.status">Status</th><th data-i18n="table.tokens">Tokens</th><th data-i18n="table.latency">Latency</th><th data-i18n="table.error">Error</th><th data-i18n="table.date">Date</th></tr></thead><tbody id="logs-body"></tbody></table></div><p class="empty hidden" id="logs-empty" data-i18n="logs.empty">No API requests yet.</p></div>
+        </section>
+      </div>
+    </section>
+  </main>
+  <dialog id="key-dialog"><div class="dialog-content"><p class="kicker" data-i18n="dialog.kicker">One-time secret</p><h2 data-i18n="dialog.title">Copy this API key now.</h2><p data-i18n="dialog.lead">For security, it will not be shown again.</p><code id="created-key"></code><div class="dialog-actions"><button class="primary-button" id="copy-key" type="button" data-i18n="dialog.copy">Copy key</button><button class="ghost-button" id="close-dialog" type="button" data-i18n="dialog.close">Close</button></div></div></dialog>
+</body></html>

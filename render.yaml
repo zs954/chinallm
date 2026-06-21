@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: chinallm-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 22.23.0
+      - key: DEEPSEEK_API_KEY
+        sync: false
+      - key: ADMIN_SECRET
+        sync: false
+      - key: ALLOWED_ORIGINS
+        sync: false
+      - key: DATABASE_PATH
+        value: /var/data/database.sqlite
+      - key: UPSTREAM_TIMEOUT_MS
+        value: 30000
+      - key: DEEPSEEK_BASE_URL
+        value: https://api.deepseek.com/v1
+    disk:
+      name: chinallm-data
+      mountPath: /var/data
+      sizeGB: 1
