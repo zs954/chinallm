@@ -83,6 +83,17 @@ test('English and Chinese dictionaries have matching keys', () => {
   assert.ok(Object.keys(TRANSLATIONS.en).length >= 50);
 });
 
+test('contact and model availability copy is bilingual', () => {
+  assert.equal(translate('models.available', 'en'), 'Available now');
+  assert.equal(translate('models.comingSoon', 'en'), 'Coming soon');
+  assert.equal(translate('models.contactPrompt', 'en'), 'Need another model API? Contact us.');
+  assert.equal(translate('contact.title', 'en'), 'Contact');
+  assert.ok(translate('models.available', 'zh').length > 0);
+  assert.ok(translate('models.comingSoon', 'zh').length > 0);
+  assert.ok(translate('models.contactPrompt', 'zh').length > 0);
+  assert.ok(translate('contact.title', 'zh').length > 0);
+});
+
 test('validateLead returns localized Chinese messages', () => {
   assert.deepEqual(validateLead({}, 'zh'), {
     name: '请输入姓名。',

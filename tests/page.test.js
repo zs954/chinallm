@@ -49,6 +49,17 @@ test('page marks content and placeholders for translation', () => {
   assert.match(html, /data-i18n="footer\.note"/);
 });
 
+test('page shows accurate model availability and public contact links', () => {
+  const html = fs.readFileSync(pagePath, 'utf8');
+  assert.match(html, /data-model="DeepSeek"[\s\S]*?data-status="available"/);
+  assert.match(html, /data-model="Qwen"[\s\S]*?data-status="coming-soon"/);
+  assert.match(html, /data-model="Kimi"[\s\S]*?data-status="coming-soon"/);
+  assert.match(html, /data-i18n="models\.contactPrompt"/);
+  assert.match(html, /href="mailto:juliaburnsfaith@gmail\.com"/);
+  assert.match(html, /href="https:\/\/t\.me\/lancer"/);
+  assert.match(html, />@lancer</);
+});
+
 test('landing page exposes a configurable public API base URL', () => {
   const html = fs.readFileSync(pagePath, 'utf8');
   const script = fs.readFileSync(path.join(__dirname, '..', 'script.js'), 'utf8');

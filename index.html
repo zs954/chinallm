@@ -121,15 +121,20 @@ response = client.chat.completions.create(
         <h2 data-i18n="models.title">The models developers<br><span>are asking for.</span></h2>
       </div>
       <div class="model-grid">
-        <article class="glass-panel model-card" data-reveal>
-          <div class="model-logo deepseek">D</div><div><span class="available" data-i18n="models.available">Available at launch</span><h3>DeepSeek</h3><p data-i18n="models.deepseekText">Reasoning and general-purpose models.</p></div>
+        <article class="glass-panel model-card" data-model="DeepSeek" data-status="available" data-reveal>
+          <div class="model-logo deepseek">D</div><div><span class="available" data-i18n="models.available">Available now</span><h3>DeepSeek</h3><p data-i18n="models.deepseekText">Reasoning and general-purpose models.</p></div>
         </article>
-        <article class="glass-panel model-card" data-reveal>
-          <div class="model-logo qwen">Q</div><div><span class="available" data-i18n="models.available">Available at launch</span><h3>Qwen</h3><p data-i18n="models.qwenText">Multilingual and coding-capable models.</p></div>
+        <article class="glass-panel model-card future" data-model="Qwen" data-status="coming-soon" data-reveal>
+          <div class="model-logo qwen">Q</div><div><span class="planned" data-i18n="models.comingSoon">Coming soon</span><h3>Qwen</h3><p data-i18n="models.qwenText">Multilingual and coding-capable models.</p></div>
         </article>
-        <article class="glass-panel model-card future" data-reveal>
-          <div class="model-logo more">+</div><div><span class="planned" data-i18n="models.planned">Planned</span><h3 data-i18n="models.moreTitle">More coming</h3><p data-i18n="models.moreText">Tell us which provider should be next.</p></div>
+        <article class="glass-panel model-card future" data-model="Kimi" data-status="coming-soon" data-reveal>
+          <div class="model-logo kimi">K</div><div><span class="planned" data-i18n="models.comingSoon">Coming soon</span><h3>Kimi</h3><p data-i18n="models.kimiText">Long-context models from Moonshot AI.</p></div>
         </article>
+      </div>
+      <div class="model-contact" data-reveal>
+        <p data-i18n="models.contactPrompt">Need another model API? Contact us.</p>
+        <a href="mailto:juliaburnsfaith@gmail.com">juliaburnsfaith@gmail.com</a>
+        <a href="https://t.me/lancer" target="_blank" rel="noopener noreferrer">@lancer</a>
       </div>
     </section>
 
@@ -214,6 +219,11 @@ client = OpenAI(
 
   <footer class="site-footer section-shell">
     <a class="brand" href="#top"><span class="brand-mark"><i></i><i></i><i></i></span><span>ChinaLLM <b>API</b></span></a>
+    <div class="footer-contact">
+      <strong data-i18n="contact.title">Contact</strong>
+      <a href="mailto:juliaburnsfaith@gmail.com">juliaburnsfaith@gmail.com</a>
+      <a href="https://t.me/lancer" target="_blank" rel="noopener noreferrer">@lancer</a>
+    </div>
     <p data-i18n="footer.note">Early access preview · Built for developers everywhere</p>
   </footer>
 </body>

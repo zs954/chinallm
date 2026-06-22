@@ -21,3 +21,12 @@ test('stylesheet includes the iOS language segmented control', () => {
   assert.match(css, /\.language-button\[aria-pressed="true"\]/);
   assert.match(css, /\.header-actions/);
 });
+
+test('stylesheet includes responsive model and footer contact controls', () => {
+  const css = fs.readFileSync(stylePath, 'utf8');
+  assert.match(css, /\.model-contact/);
+  assert.match(css, /\.footer-contact/);
+  assert.match(css, /\.contact-link:hover|\.model-contact a:hover/);
+  assert.match(css, /\.model-contact a:focus-visible|:focus-visible/);
+  assert.match(css, /\.kimi/);
+});
