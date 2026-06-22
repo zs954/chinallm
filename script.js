@@ -1,7 +1,7 @@
 const FORM_ENDPOINT = '';
 const PUBLIC_API_BASE_URL = typeof location !== 'undefined' && ['localhost', '127.0.0.1'].includes(location.hostname)
   ? 'http://localhost:3000'
-  : 'https://chinallm-api.onrender.com';
+  : 'https://api.chniaall.online';
 const LANGUAGE_STORAGE_KEY = 'chinallm-language';
 
 const TRANSLATIONS = {
