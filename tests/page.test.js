@@ -68,8 +68,9 @@ test('repository includes safe GitHub Pages and Render deployment configuration'
   assert.match(workflow, /script\.js/);
   assert.doesNotMatch(workflow, /cp\s+-r\s+backend/);
   assert.match(render, /rootDir:\s*backend/);
-  assert.match(render, /disk:/);
-  assert.match(render, /DATABASE_PATH/);
+  assert.match(render, /plan:\s*free/);
+  assert.match(render, /DATABASE_PATH[\s\S]*\/tmp\/chinallm\/database\.sqlite/);
+  assert.doesNotMatch(render, /\bdisk:/);
   assert.match(gitignore, /\.env/);
   assert.match(gitignore, /\*\.sqlite/);
 });
