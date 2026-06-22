@@ -2,6 +2,7 @@ services:
   - type: web
     name: chinallm-api
     runtime: node
+    plan: free
     rootDir: backend
     buildCommand: npm ci
     startCommand: npm start
