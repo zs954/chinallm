@@ -16,12 +16,8 @@ services:
       - key: ALLOWED_ORIGINS
         sync: false
       - key: DATABASE_PATH
-        value: /var/data/database.sqlite
+        value: /tmp/chinallm/database.sqlite
       - key: UPSTREAM_TIMEOUT_MS
         value: 30000
       - key: DEEPSEEK_BASE_URL
         value: https://api.deepseek.com/v1
-    disk:
-      name: chinallm-data
-      mountPath: /var/data
-      sizeGB: 1
